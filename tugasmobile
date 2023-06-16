@@ -1,0 +1,1466 @@
+
+//main.dart
+
+import 'package:HISTYLING/pagetabbar.dart';
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: pagelogin(),
+    );
+  }
+}
+
+class pagelogin extends StatefulWidget {
+  @override
+  _pageloginState createState() => _pageloginState();
+}
+
+class _pageloginState extends State<pagelogin> {
+  bool tombolmulai = false;
+  bool tombolmulaiaktif = false;
+  bool daftardipencet = true;
+  @override
+  Widget build(BuildContext context) {
+    var lebar = MediaQuery.of(context).size.width;
+    var tinggi = MediaQuery.of(context).size.height;
+    return Scaffold(
+      body: Stack(
+        children: [
+          Column(
+            children: [
+              Container(
+                height: tinggi * 4 / 10,
+                width: lebar,
+                color: Colors.grey[300],
+              ),
+              Container(
+                height: tinggi * 6 / 10,
+                width: lebar,
+                color: Colors.grey[300],
+                child: Center(
+                  child: (daftardipencet)
+                      ? Container(
+                          height: tinggi * 5 / 10,
+                          width: lebar * 8 / 10,
+                          color: Colors.transparent,
+                          child: Column(
+                            children: [
+                              Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: Text(
+                                    " Email",
+                                    style: TextStyle(
+                                        fontSize: 14, color: Colors.black),
+                                  )),
+                              SizedBox(
+                                height: 35,
+                              ),
+                              Container(
+                                width: 300,
+                                height: 1,
+                                color: Colors.black,
+                              ),
+                              SizedBox(
+                                height: 20,
+                              ),
+                              Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: Text(
+                                    " No.Handphone",
+                                    style: TextStyle(
+                                        fontSize: 14, color: Colors.black),
+                                  )),
+                              SizedBox(
+                                height: 35,
+                              ),
+                              Container(
+                                width: 300,
+                                height: 1,
+                                color: Colors.black,
+                              ),
+                              SizedBox(
+                                height: 20,
+                              ),
+                              Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: Text(
+                                    " Username",
+                                    style: TextStyle(
+                                        fontSize: 14, color: Colors.black),
+                                  )),
+                              SizedBox(
+                                height: 35,
+                              ),
+                              Container(
+                                width: 300,
+                                height: 1,
+                                color: Colors.black,
+                              ),
+                              SizedBox(
+                                height: 20,
+                              ),
+                              Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: Text(
+                                    " Password",
+                                    style: TextStyle(
+                                        fontSize: 14, color: Colors.black),
+                                  )),
+                              SizedBox(
+                                height: 35,
+                              ),
+                              Container(
+                                width: 300,
+                                height: 1,
+                                color: Colors.black,
+                              ),
+                            ],
+                          ),
+                        )
+                      : Container(
+                          height: tinggi * 5 / 10,
+                          width: lebar * 8 / 10,
+                          color: Colors.transparent,
+                          child: Column(
+                            children: [
+                              Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: Text(
+                                    " Email",
+                                    style: TextStyle(
+                                        fontSize: 14, color: Colors.black),
+                                  )),
+                              SizedBox(
+                                height: 35,
+                              ),
+                              Container(
+                                width: 300,
+                                height: 1,
+                                color: Colors.black,
+                              ),
+                              SizedBox(
+                                height: 20,
+                              ),
+                              Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: Text(
+                                    " Password",
+                                    style: TextStyle(
+                                        fontSize: 14, color: Colors.black),
+                                  )),
+                              SizedBox(
+                                height: 35,
+                              ),
+                              Container(
+                                width: 300,
+                                height: 1,
+                                color: Colors.black,
+                              ),
+                              SizedBox(
+                                height: 15,
+                              ),
+                              Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: Text(
+                                    "    Lupa Password ya ? klik disini",
+                                    style: TextStyle(
+                                        fontSize: 13, color: Colors.orange),
+                                  )),
+                            ],
+                          ),
+                        ),
+                ),
+              ),
+            ],
+          ),
+          Column(
+            children: [
+              AnimatedContainer(
+                duration: Duration(milliseconds: 500),
+                height: (tombolmulaiaktif) ? tinggi * 4 / 10 - 40 : tinggi,
+                width: lebar,
+                color: (tombolmulaiaktif) ? Colors.white : Colors.orange,
+                child: Center(
+                    child: Text(
+                  "USEDCarBY",
+                  style: TextStyle(
+                      color: (tombolmulaiaktif) ? Colors.orange : Colors.white,
+                      fontSize: 30),
+                )),
+              ),
+              Stack(
+                children: [
+                  Row(
+                    children: [
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            daftardipencet = false;
+                          });
+                        },
+                        child: AnimatedContainer(
+                          duration: Duration(milliseconds: 500),
+                          height: (tombolmulaiaktif) ? 40 : 0,
+                          width: lebar / 2,
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.only(
+                                  bottomLeft: Radius.circular(20))),
+                          child: Center(
+                              child: Text(
+                            "Login",
+                            style: TextStyle(
+                                fontSize: 15, fontWeight: FontWeight.bold),
+                          )),
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            daftardipencet = true;
+                          });
+                        },
+                        child: AnimatedContainer(
+                          duration: Duration(milliseconds: 500),
+                          height: (tombolmulaiaktif) ? 40 : 0,
+                          width: lebar / 2,
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.only(
+                                  bottomRight: Radius.circular(20))),
+                          child: Center(
+                              child: Text(
+                            "Daftar",
+                            style: TextStyle(
+                                fontSize: 15, fontWeight: FontWeight.bold),
+                          )),
+                        ),
+                      )
+                    ],
+                  ),
+                  Positioned(
+                    bottom: 0,
+                    left: (daftardipencet) ? lebar / 2 : null,
+                    right: (daftardipencet) ? null : lebar / 2,
+                    child: Container(
+                      color: Colors.orange,
+                      height: 4,
+                      width: lebar / 2 - 20,
+                    ),
+                  )
+                ],
+              ),
+            ],
+          ),
+          Positioned(
+            bottom: 25,
+            left: lebar / 8,
+            child: GestureDetector(
+              onTapDown: (details) {
+                setState(() {
+                  tombolmulai = true;
+                });
+              },
+              onTapUp: (details) {
+                setState(() {
+                  tombolmulai = false;
+                  if (tombolmulaiaktif) {
+                    var route = new MaterialPageRoute(
+                        builder: (BuildContext context) => new tabbar());
+                    Navigator.of(context).pushReplacement(route);
+                  } else {
+                    tombolmulaiaktif = true;
+                  }
+                });
+              },
+              onTapCancel: () {
+                setState(() {
+                  tombolmulai = false;
+                });
+              },
+              child: Container(
+                height: 70,
+                width: lebar * 3 / 4,
+                decoration: BoxDecoration(
+                    color: (tombolmulai)
+                        ? Colors.grey[200]
+                        : (tombolmulaiaktif)
+                            ? Colors.orange
+                            : Colors.white,
+                    borderRadius: BorderRadius.circular(25)),
+                child: Center(
+                    child: Text(
+                  (tombolmulaiaktif)
+                      ? (daftardipencet)
+                          ? "Daftar"
+                          : "Login"
+                      : "Mulai",
+                  style: TextStyle(
+                      color: (tombolmulaiaktif) ? Colors.white : Colors.orange,
+                      fontSize: 18),
+                )),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+//pagetabbar.dart
+
+import 'package:HISTYLING/beran.dart';
+import 'package:HISTYLING/profil.dart';
+import 'package:HISTYLING/upload.dart';
+import 'package:flutter/material.dart';
+
+class tabbar extends StatefulWidget {
+  @override
+  _tabbarState createState() => _tabbarState();
+}
+
+class _tabbarState extends State<tabbar> {
+  @override
+  Widget build(BuildContext context) {
+    TabBar TabBarKu = TabBar(
+      unselectedLabelColor: Colors.grey,
+      labelColor: Colors.orange,
+      tabs: [
+        Tab(
+          child: Column(
+            children: [
+              Icon(
+                Icons.home,
+                size: 30,
+              ),
+              Text("Beranda", style: TextStyle(fontSize: 13)),
+            ],
+          ),
+        ),
+        Tab(
+          child: Column(
+            children: [
+              Icon(
+                Icons.camera_alt,
+                size: 30,
+              ),
+              Text(
+                "Upload",
+                style: TextStyle(fontSize: 13),
+              ),
+            ],
+          ),
+        ),
+        Tab(
+          child: Column(
+            children: [
+              Icon(
+                Icons.account_circle_rounded,
+                size: 30,
+              ),
+              Text("Profil", style: TextStyle(fontSize: 13)),
+            ],
+          ),
+        ),
+      ],
+    );
+    return DefaultTabController(
+        length: 3,
+        child: Scaffold(
+          backgroundColor: Colors.black,
+          bottomNavigationBar: Container(
+              decoration: BoxDecoration(
+                color: Colors.white,
+              ),
+              height: 60,
+              child: TabBarKu),
+          body: TabBarView(
+            children: [
+              beranda(),
+              upload(),
+              profil(),
+            ],
+          ),
+        ));
+  }
+}
+
+
+//beran.dart
+
+import 'package:HISTYLING/dataaa.dart';
+import 'package:HISTYLING/detail.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
+class beranda extends StatefulWidget {
+  @override
+  _berandaState createState() => _berandaState();
+}
+
+class _berandaState extends State<beranda> {
+  bool olahraga = false;
+  bool pernikahan = false;
+  bool nongkrong = false;
+  bool pantai = false;
+  @override
+  Widget build(BuildContext context) {
+    var lebar = MediaQuery.of(context).size.width;
+    var lebarkategori = lebar / 5 - 6;
+    var fontsizekategori = 12.0;
+    return Scaffold(
+        backgroundColor: Colors.grey[100],
+        body: ListView(
+          padding: EdgeInsets.all(15),
+          children: [
+            SizedBox(
+              height: 1,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Text(
+                  "Hi, User",
+                  style: TextStyle(fontSize: 20, color: Colors.orange),
+                ),
+                SizedBox(
+                  width: 5,
+                ),
+                Icon(
+                  Icons.account_circle_rounded,
+                  size: 40,
+                  color: Colors.orange,
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Center(
+              child: Text(
+                "USEDCarsBy",
+                style: TextStyle(
+                    fontSize: 32,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold),
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Container(
+              child: Center(
+                child: TextField(
+                  decoration: InputDecoration(
+                      prefixIcon: Icon(Icons.search),
+                      border: InputBorder.none,
+                      hintText: "Cari di sini.....",
+                      hintStyle: TextStyle(
+                          color: Colors.grey, fontFamily: "Stanberry")),
+                  style: TextStyle(color: Colors.grey[900]),
+                ),
+              ),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadiusDirectional.circular(30),
+                  color: Colors.white),
+              height: 60,
+              width: MediaQuery.of(context).size.width * 75 / 100,
+            ),
+            SizedBox(
+              height: 18,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      olahraga = false;
+                      pernikahan = false;
+                      nongkrong = false;
+                      pantai = false;
+                    });
+                  },
+                  child: Column(
+                    children: [
+                      Container(
+                        height: 40,
+                        width: lebarkategori,
+                        decoration: BoxDecoration(
+                          color: Colors.transparent,
+                        ),
+                        child: Center(
+                            child: Text(
+                          "Semua",
+                          style: TextStyle(
+                              fontSize: fontsizekategori,
+                              fontWeight: FontWeight.bold,
+                              color: (olahraga ||
+                                      pernikahan ||
+                                      nongkrong ||
+                                      pantai)
+                                  ? Colors.grey[700]
+                                  : Colors.orange),
+                        )),
+                      ),
+                      Container(
+                        height: 5,
+                        width: lebarkategori,
+                        color: (olahraga || pernikahan || nongkrong || pantai)
+                            ? Colors.transparent
+                            : Colors.orange,
+                      )
+                    ],
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      olahraga = true;
+                      pernikahan = false;
+                      nongkrong = false;
+                      pantai = false;
+                    });
+                  },
+                  child: Column(
+                    children: [
+                      Container(
+                        height: 40,
+                        width: lebarkategori,
+                        decoration: BoxDecoration(
+                          color: Colors.transparent,
+                        ),
+                        child: Center(
+                            child: Text(
+                          "MPV",
+                          style: TextStyle(
+                              fontSize: fontsizekategori,
+                              fontWeight: FontWeight.bold,
+                              color: (olahraga)
+                                  ? Colors.orange
+                                  : Colors.grey[700]),
+                        )),
+                      ),
+                      Container(
+                        height: 5,
+                        width: lebarkategori,
+                        color: (olahraga) ? Colors.orange : Colors.transparent,
+                      )
+                    ],
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      olahraga = false;
+                      pernikahan = true;
+                      nongkrong = false;
+                      pantai = false;
+                    });
+                  },
+                  child: Column(
+                    children: [
+                      Container(
+                        height: 40,
+                        width: lebarkategori,
+                        decoration: BoxDecoration(
+                          color: Colors.transparent,
+                        ),
+                        child: Center(
+                            child: Text(
+                          "Hatchback",
+                          style: TextStyle(
+                              fontSize: fontsizekategori,
+                              fontWeight: FontWeight.bold,
+                              color: (pernikahan)
+                                  ? Colors.orange
+                                  : Colors.grey[700]),
+                        )),
+                      ),
+                      Container(
+                        height: 5,
+                        width: lebarkategori,
+                        color:
+                            (pernikahan) ? Colors.orange : Colors.transparent,
+                      )
+                    ],
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      olahraga = false;
+                      pernikahan = false;
+                      nongkrong = true;
+                      pantai = false;
+                    });
+                  },
+                  child: Column(
+                    children: [
+                      Container(
+                        height: 40,
+                        width: lebarkategori,
+                        decoration: BoxDecoration(
+                          color: Colors.transparent,
+                        ),
+                        child: Center(
+                            child: Text(
+                          "SUV",
+                          style: TextStyle(
+                              fontSize: fontsizekategori,
+                              fontWeight: FontWeight.bold,
+                              color: (nongkrong)
+                                  ? Colors.orange
+                                  : Colors.grey[700]),
+                        )),
+                      ),
+                      Container(
+                        height: 5,
+                        width: lebarkategori,
+                        color: (nongkrong) ? Colors.orange : Colors.transparent,
+                      )
+                    ],
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      olahraga = false;
+                      pernikahan = false;
+                      nongkrong = false;
+                      pantai = true;
+                    });
+                  },
+                  child: Column(
+                    children: [
+                      Container(
+                        height: 40,
+                        width: lebarkategori,
+                        decoration: BoxDecoration(
+                          color: Colors.transparent,
+                        ),
+                        child: Center(
+                            child: Text(
+                          "SEDAN",
+                          style: TextStyle(
+                              fontSize: fontsizekategori,
+                              fontWeight: FontWeight.bold,
+                              color:
+                                  (pantai) ? Colors.orange : Colors.grey[700]),
+                        )),
+                      ),
+                      Container(
+                        height: 5,
+                        width: lebarkategori,
+                        color: (pantai) ? Colors.orange : Colors.transparent,
+                      )
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 7,
+            ),
+            Column(
+              children: (olahraga)
+                  ? [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          buildkotak(lebar, namamobil[0][0], deskripsi[0][0],
+                              fotomobil[0][0]),
+                          buildkotak(lebar, namamobil[0][1], deskripsi[0][1],
+                              fotomobil[0][1])
+                        ],
+                      ),
+                      SizedBox(
+                        height: 7,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          buildkotak(lebar, namamobil[0][2], deskripsi[0][2],
+                              fotomobil[0][2]),
+                          buildkotak(lebar, namamobil[0][3], deskripsi[0][3],
+                              fotomobil[0][3])
+                        ],
+                      ),
+                    ]
+                  : (pernikahan)
+                      ? [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              buildkotak(lebar, namamobil[1][0],
+                                  deskripsi[1][0], fotomobil[1][0]),
+                              buildkotak(lebar, namamobil[1][1],
+                                  deskripsi[1][1], fotomobil[1][1])
+                            ],
+                          ),
+                          SizedBox(
+                            height: 7,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              buildkotak(lebar, namamobil[1][2],
+                                  deskripsi[1][2], fotomobil[1][2]),
+                              buildkotak(lebar, namamobil[1][3],
+                                  deskripsi[1][3], fotomobil[1][3])
+                            ],
+                          ),
+                        ]
+                      : (nongkrong)
+                          ? [
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  buildkotak(lebar, namamobil[2][0],
+                                      deskripsi[2][0], fotomobil[2][0]),
+                                  buildkotak(lebar, namamobil[2][1],
+                                      deskripsi[2][1], fotomobil[2][1])
+                                ],
+                              ),
+                              SizedBox(
+                                height: 7,
+                              ),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  buildkotak(lebar, namamobil[2][2],
+                                      deskripsi[2][2], fotomobil[2][2]),
+                                  buildkotak(lebar, namamobil[2][3],
+                                      deskripsi[2][3], fotomobil[2][3])
+                                ],
+                              ),
+                            ]
+                          : (pantai)
+                              ? [
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      buildkotak(lebar, namamobil[3][0],
+                                          deskripsi[3][0], fotomobil[3][0]),
+                                      buildkotak(lebar, namamobil[3][1],
+                                          deskripsi[3][1], fotomobil[3][1])
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    height: 7,
+                                  ),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      buildkotak(lebar, namamobil[3][2],
+                                          deskripsi[3][2], fotomobil[3][2]),
+                                      buildkotak(lebar, namamobil[3][3],
+                                          deskripsi[3][3], fotomobil[3][3])
+                                    ],
+                                  ),
+                                ]
+                              : [
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      buildkotak(lebar, namamobil[0][0],
+                                          deskripsi[0][0], fotomobil[0][0]),
+                                      buildkotak(lebar, namamobil[0][1],
+                                          deskripsi[0][1], fotomobil[0][1])
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    height: 7,
+                                  ),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      buildkotak(lebar, namamobil[0][2],
+                                          deskripsi[0][2], fotomobil[0][2]),
+                                      buildkotak(lebar, namamobil[0][3],
+                                          deskripsi[0][3], fotomobil[0][3])
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    height: 7,
+                                  ),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      buildkotak(lebar, namamobil[1][0],
+                                          deskripsi[1][0], fotomobil[1][0]),
+                                      buildkotak(lebar, namamobil[1][1],
+                                          deskripsi[1][1], fotomobil[1][1])
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    height: 7,
+                                  ),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      buildkotak(lebar, namamobil[1][2],
+                                          deskripsi[1][2], fotomobil[1][2]),
+                                      buildkotak(lebar, namamobil[1][3],
+                                          deskripsi[1][3], fotomobil[1][3])
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    height: 7,
+                                  ),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      buildkotak(lebar, namamobil[2][0],
+                                          deskripsi[2][0], fotomobil[2][0]),
+                                      buildkotak(lebar, namamobil[2][1],
+                                          deskripsi[2][1], fotomobil[2][1])
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    height: 7,
+                                  ),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      buildkotak(lebar, namamobil[2][2],
+                                          deskripsi[2][2], fotomobil[2][2]),
+                                      buildkotak(lebar, namamobil[2][3],
+                                          deskripsi[2][3], fotomobil[2][3])
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    height: 7,
+                                  ),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      buildkotak(lebar, namamobil[3][0],
+                                          deskripsi[3][0], fotomobil[3][0]),
+                                      buildkotak(lebar, namamobil[3][1],
+                                          deskripsi[3][1], fotomobil[3][1])
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    height: 7,
+                                  ),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      buildkotak(lebar, namamobil[3][2],
+                                          deskripsi[3][2], fotomobil[3][2]),
+                                      buildkotak(lebar, namamobil[3][3],
+                                          deskripsi[3][3], fotomobil[3][3])
+                                    ],
+                                  ),
+                                ],
+            ),
+          ],
+        ));
+  }
+
+  GestureDetector buildkotak(
+      double lebar, String nama, String isi, String Foto) {
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          var route = new MaterialPageRoute(
+              builder: (BuildContext context) => new detail(
+                    judul: nama,
+                    Isi: isi,
+                  ));
+          Navigator.of(context).push(route);
+        });
+      },
+      child: Container(
+        height: lebar / 2 - 17,
+        width: lebar / 2 - 17,
+        decoration: BoxDecoration(color: Colors.white, boxShadow: [
+          BoxShadow(
+              color: Colors.black.withOpacity(0.5),
+              blurRadius: 1,
+              offset: Offset(0, 1))
+        ]),
+        child: Column(
+          children: [
+            Container(
+              height: lebar / 2 - 17 - 40,
+              color: Colors.white,
+              child: Image(
+                image: NetworkImage(
+                  Foto,
+                ),
+                fit: BoxFit.contain,
+              ),
+            ),
+            Container(
+              height: 40,
+              width: lebar / 2 - 17,
+              decoration: BoxDecoration(color: Colors.grey[400]),
+              child: Row(
+                children: [
+                  SizedBox(
+                    width: 5,
+                  ),
+                  Container(
+                    width: lebar / 2 - 17 - 70 - 10,
+                    child: Text(
+                      nama,
+                      style:
+                          TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                  Container(
+                    height: 23,
+                    width: 70,
+                    child: Center(
+                        child: Text(
+                      "Detail",
+                      style: TextStyle(color: Colors.white),
+                    )),
+                    decoration: BoxDecoration(
+                        color: Colors.orange,
+                        borderRadius: BorderRadius.circular(15)),
+                  )
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+
+//dataaa.dart
+
+List<List> namamobil = [
+  ["XPANDER", "Honda BRV", "Toyota Veloz", "Honda HRV"],
+  [
+    "Honda City Hatchback",
+    "Honda Civic Hatchback",
+    "VW Sciroco",
+    "Mazda 3 Hatchback"
+  ],
+  [
+    "Nissan X-trail",
+    "Mistubishi pajero",
+    "toyota Fortuner",
+    "Hyundai Palidase"
+  ],
+  ["BMW 330i", "Toyota Mark X", "Toyota Camry", "Honda Accord"]
+];
+
+List<List> deskripsi = [
+  [
+    "Harga : 200.000.000\n\nInfo lebih lanjut langsung chat aja\nMitsubitshi Xpander\nWarna Silver\nTahun 2019\nA/T\nkm 80,xxx\n.\n\nSpek :\nHeadlamp sudah LED\nAC sudah digital\nCamera Mundur\nHeadunit sudah touchscreen dan support bluetooth\nBan tahun 2019\n.\nKelengkapan :\n-BPKB\n-STNK\n-Perkakas\n.\n06-2027\n.\nLokasi Jakarta",
+    "Harga : 300.000.000\nInfo lebih lanjut langsung chat aja\n.\nHonda City Hatchback\nWarna putih\nTahun 2021\nA/T\nkm 40,xxx    \n.\nSpek :\nHeadlamp sudah LED\nAC sudah digital\nCamera Mundur\nHeadunit sudah touchscreen dan support bluetooth\nBan tahun 2019\nApplecardplay\nPaddleshift\n.\nKelengkapan :\n-BPKB\n-STNK\n-Perkakas\n.\n06-2027\n.\nLokasi Jakarta",
+    "deskripsi 3",
+    "deskripsi 4"
+  ],
+  ["deskripsi 1", "deskripsi 2", "deskripsi 3", "deskripsi 4"],
+  ["deskripsi 1", "deskripsi 2", "deskripsi 3", "deskripsi 4"],
+  ["deskripsi 1", "deskripsi 2", "deskripsi 3", "deskripsi 4"]
+];
+
+List<List> fotomobil = [
+  [
+    "https://id.fcgapi.com/image/olxautos-prd-inspection-images-ap-southeast-1/a86b939f-b207-4b51-ad3e-1133f48c9b69/454186?watermark=false&country=id&cache=true",
+    "https://apollo-singapore.akamaized.net/v1/files/5m8vkv7nqagr1-ID/image;s=780x0;q=60",
+    "https://apollo-singapore.akamaized.net/v1/files/s2qfbkems6j72-ID/image;s=780x0;q=60",
+    "https://apollo-singapore.akamaized.net/v1/files/9pxkvglow3ps1-ID/image;s=780x0;q=60"
+  ],
+  [
+    "https://apollo-singapore.akamaized.net/v1/files/beo97tys7bq02-ID/image;s=780x0;q=60",
+    "https://apollo-singapore.akamaized.net/v1/files/78musk3rp7s51-ID/image;s=780x0;q=60",
+    "https://apollo-singapore.akamaized.net/v1/files/zmjtsgu7b7n2-ID/image;s=780x0;q=60",
+    "https://apollo-singapore.akamaized.net/v1/files/yw7b15z1mftq-ID/image;s=780x0;q=60"
+  ],
+  [
+    "https://apollo-singapore.akamaized.net/v1/files/26w56n38payd3-ID/image;s=780x0;q=60",
+    "https://apollo-singapore.akamaized.net/v1/files/7n9jl3nvwmv73-ID/image;s=780x0;q=60",
+    "https://apollo-singapore.akamaized.net/v1/files/nc476l3gzqs82-ID/image;s=780x0;q=60",
+    "https://apollo-singapore.akamaized.net/v1/files/3rxez1gfgflv-ID/image;s=780x0;q=60"
+  ],
+  [
+    "https://apollo-singapore.akamaized.net/v1/files/ufdc7wn1ddbs2-ID/image;s=780x0;q=60",
+    "https://apollo-singapore.akamaized.net/v1/files/kxd79pvnc2da1-ID/image;s=780x0;q=60",
+    "https://apollo-singapore.akamaized.net/v1/files/al72jqxb7qfz2-ID/image;s=780x0;q=60",
+    "https://apollo-singapore.akamaized.net/v1/files/lpps9gn2yhtg-ID/image;s=780x0;q=60"
+  ]
+];
+
+
+//detail.dart
+
+import 'package:flutter/material.dart';
+
+class detail extends StatefulWidget {
+  final String judul;
+  final String Isi;
+  final String Foto;
+
+  detail({this.judul, this.Isi, this.Foto});
+  @override
+  _detailState createState() => _detailState();
+}
+
+class _detailState extends State<detail> {
+  @override
+  Widget build(BuildContext context) {
+    var tinggi = MediaQuery.of(context).size.height;
+    var lebar = MediaQuery.of(context).size.width;
+    return Scaffold(
+      backgroundColor: Colors.grey[200],
+      body: ListView(
+        children: [
+          SizedBox(
+            height: 30,
+          ),
+          Center(
+            child: Container(
+              height: tinggi / 3,
+              width: lebar * 95 / 100,
+              color: Colors.white,
+              child: Image(
+                image: NetworkImage(
+                  widget.Foto,
+                ),
+                fit: BoxFit.contain,
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 30,
+          ),
+          Row(
+            children: [
+              SizedBox(
+                width: 20,
+              ),
+              Text(
+                widget.judul,
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+            ],
+          ),
+          SizedBox(
+            height: 5,
+          ),
+          Row(
+            children: [
+              SizedBox(
+                width: 20,
+              ),
+              Container(
+                height: tinggi - (tinggi / 3) - 65 - 30,
+                width: lebar - 40,
+                color: Colors.transparent,
+                child: Text(
+                  widget.Isi,
+                  style: TextStyle(fontSize: 18),
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+
+//profil.dart
+
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
+class profil extends StatefulWidget {
+  @override
+  _profilState createState() => _profilState();
+}
+
+class _profilState extends State<profil> {
+  @override
+  Widget build(BuildContext context) {
+    var lebar = MediaQuery.of(context).size.width;
+    return Scaffold(
+      appBar: AppBar(
+        title: Center(
+            child: Text(
+          "Profil",
+          style: TextStyle(color: Colors.black),
+        )),
+        backgroundColor: Colors.transparent,
+        shadowColor: Colors.transparent,
+      ),
+      body: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Container(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Icon(
+                      Icons.account_circle_rounded,
+                      size: 40,
+                      color: Colors.orange,
+                    ),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Text(
+                      "Hi, User",
+                      style: TextStyle(fontSize: 20, color: Colors.orange),
+                    ),
+                  ],
+                ),
+              ),
+              Text(
+                "Keluar   ",
+                style: TextStyle(
+                    fontSize: 22,
+                    color: Colors.deepOrangeAccent,
+                    fontWeight: FontWeight.bold),
+              ),
+            ],
+          ),
+          SizedBox(height: 40),
+          Container(
+            height: 60,
+            width: lebar * 3 / 4,
+            margin: EdgeInsets.fromLTRB(40, 0, 40, 0),
+            color: Colors.transparent,
+            child: TextField(
+              maxLines: 3,
+              decoration: InputDecoration(
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.grey, width: 1.0),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.orange, width: 1.0),
+                  ),
+                  floatingLabelBehavior: FloatingLabelBehavior.always,
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10)),
+                  hintText: "contoh@gmail.com",
+                  labelText: "Email",
+                  labelStyle: TextStyle(color: Colors.grey, fontSize: 20),
+                  hintStyle: TextStyle(color: Colors.grey[600], fontSize: 16)),
+              style: TextStyle(color: Colors.grey[900]),
+            ),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Container(
+            height: 60,
+            width: lebar * 3 / 4,
+            margin: EdgeInsets.fromLTRB(40, 0, 40, 0),
+            color: Colors.transparent,
+            child: TextField(
+              maxLines: 3,
+              decoration: InputDecoration(
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.grey, width: 1.0),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.orange, width: 1.0),
+                  ),
+                  floatingLabelBehavior: FloatingLabelBehavior.always,
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10)),
+                  hintText: "08xxxxxxxxx",
+                  labelText: "Nomor HP",
+                  labelStyle: TextStyle(color: Colors.grey, fontSize: 20),
+                  hintStyle: TextStyle(color: Colors.grey[600], fontSize: 16)),
+              style: TextStyle(color: Colors.grey[900]),
+            ),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Container(
+            height: 60,
+            width: lebar * 3 / 4,
+            margin: EdgeInsets.fromLTRB(40, 0, 40, 0),
+            color: Colors.transparent,
+            child: TextField(
+              maxLines: 3,
+              decoration: InputDecoration(
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.grey, width: 1.0),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.orange, width: 1.0),
+                  ),
+                  floatingLabelBehavior: FloatingLabelBehavior.always,
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10)),
+                  hintText: "..........",
+                  labelText: "Username",
+                  labelStyle: TextStyle(color: Colors.grey, fontSize: 20),
+                  hintStyle: TextStyle(color: Colors.grey[600], fontSize: 16)),
+              style: TextStyle(color: Colors.grey[900]),
+            ),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Container(
+            height: 60,
+            width: lebar * 3 / 4,
+            margin: EdgeInsets.fromLTRB(40, 0, 40, 0),
+            color: Colors.transparent,
+            child: TextField(
+              obscureText: true,
+              maxLines: 1,
+              decoration: InputDecoration(
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.grey, width: 1.0),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.orange, width: 1.0),
+                  ),
+                  floatingLabelBehavior: FloatingLabelBehavior.always,
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10)),
+                  hintText: "*********",
+                  labelText: "Password",
+                  labelStyle: TextStyle(color: Colors.grey, fontSize: 20),
+                  hintStyle: TextStyle(color: Colors.grey[600], fontSize: 16)),
+              style: TextStyle(color: Colors.grey[900]),
+            ),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+
+//upload.dart
+
+import 'package:flutter/material.dart';
+
+class upload extends StatefulWidget {
+  @override
+  _uploadState createState() => _uploadState();
+}
+
+class _uploadState extends State<upload> {
+  bool postingbutton = false;
+  @override
+  Widget build(BuildContext context) {
+    var tinggi = MediaQuery.of(context).size.height;
+    var lebar = MediaQuery.of(context).size.width;
+
+    return Scaffold(
+      body: Container(
+        child: ListView(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Text(
+                  "Hi, User",
+                  style: TextStyle(fontSize: 20, color: Colors.orange),
+                ),
+                SizedBox(
+                  width: 5,
+                ),
+                Icon(
+                  Icons.account_circle_rounded,
+                  size: 40,
+                  color: Colors.orange,
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Container(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    Icons.camera_alt,
+                    size: 70,
+                    color: Colors.grey,
+                  ),
+                  Text(
+                    "Upload Mobil",
+                    style: TextStyle(
+                        fontSize: 23,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.grey),
+                  ),
+                ],
+              ),
+              height: tinggi * 25 / 100,
+              margin: EdgeInsets.fromLTRB(20, 0, 20, 0),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadiusDirectional.circular(30),
+                  color: Colors.grey[300],
+                  boxShadow: [
+                    BoxShadow(
+                        color: Colors.black.withOpacity(0.5),
+                        blurRadius: 5,
+                        offset: Offset(0, 3))
+                  ]),
+            ),
+            SizedBox(
+              height: 40,
+            ),
+            Container(
+              height: 60,
+              width: lebar * 3 / 4,
+              margin: EdgeInsets.fromLTRB(40, 0, 40, 0),
+              color: Colors.transparent,
+              child: TextField(
+                maxLines: 3,
+                decoration: InputDecoration(
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.grey, width: 1.0),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.grey, width: 1.0),
+                    ),
+                    floatingLabelBehavior: FloatingLabelBehavior.always,
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10)),
+                    hintText: " Masukkan Jenis Kendaraan",
+                    labelText: "Jenis Kendaraan",
+                    labelStyle: TextStyle(color: Colors.grey, fontSize: 20),
+                    hintStyle:
+                        TextStyle(color: Colors.grey[700], fontSize: 16)),
+                style: TextStyle(color: Colors.grey[900]),
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Container(
+              height: 60,
+              width: lebar * 3 / 4,
+              margin: EdgeInsets.fromLTRB(40, 0, 40, 0),
+              color: Colors.transparent,
+              child: TextField(
+                maxLines: 3,
+                decoration: InputDecoration(
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.grey, width: 1.0),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.grey, width: 1.0),
+                    ),
+                    floatingLabelBehavior: FloatingLabelBehavior.always,
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10)),
+                    hintText: " Masukkan Deskripsi Kendaraan",
+                    labelText: "Deskripsi Kendaraan",
+                    labelStyle: TextStyle(color: Colors.grey, fontSize: 20),
+                    hintStyle:
+                        TextStyle(color: Colors.grey[700], fontSize: 16)),
+                style: TextStyle(color: Colors.grey[900]),
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Container(
+              height: 60,
+              width: lebar * 3 / 4,
+              margin: EdgeInsets.fromLTRB(40, 0, 40, 0),
+              color: Colors.transparent,
+              child: TextField(
+                maxLines: 3,
+                decoration: InputDecoration(
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.grey, width: 1.0),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.grey, width: 1.0),
+                    ),
+                    floatingLabelBehavior: FloatingLabelBehavior.always,
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10)),
+                    hintText: " Masukkan Tag...",
+                    labelText: "Tag",
+                    labelStyle: TextStyle(color: Colors.grey, fontSize: 20),
+                    hintStyle:
+                        TextStyle(color: Colors.grey[700], fontSize: 16)),
+                style: TextStyle(color: Colors.grey[900]),
+              ),
+            ),
+            SizedBox(
+              height: 36,
+            ),
+            GestureDetector(
+              onTapDown: (details) {
+                setState(() {
+                  postingbutton = true;
+                });
+              },
+              onTapUp: (details) {
+                setState(() {
+                  postingbutton = false;
+                });
+              },
+              onTapCancel: () {
+                setState(() {
+                  postingbutton = false;
+                });
+              },
+              child: Container(
+                margin: EdgeInsets.fromLTRB(50, 0, 50, 0),
+                height: 70,
+                width: lebar * 3 / 4,
+                decoration: BoxDecoration(
+                    color: (postingbutton) ? Colors.deepOrange : Colors.orange,
+                    borderRadius: BorderRadius.circular(25)),
+                child: Center(
+                    child: Text(
+                  "Posting",
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold),
+                )),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
